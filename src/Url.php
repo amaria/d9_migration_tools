@@ -624,7 +624,7 @@ class Url {
         'key' => 'filename',
         'recurse' => $recurse,
       ];
-      $files = file_scan_directory($dir, $regex, $options);
+      $files = \Drupal::service('file_system')->scanDirectory($dir, $regex, $options);
       foreach ($files as $file => $fileinfo) {
         $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
         $processed_files[$extension] = [
